@@ -32,6 +32,9 @@
         }
         .content {
             display: flex;
+            flex-wrap: wrap;
+            max-width: calc(100vw - 40px);
+            gap: 1rem;
         }
         #canvasContainer {
             flex: 1;
@@ -47,6 +50,7 @@
         canvas {
             border: 1px solid #009900;
             max-height: calc(100vh - 80px);
+            max-width: calc(100vw - 80px);
         }
         button {
             background: #0f0f23;
