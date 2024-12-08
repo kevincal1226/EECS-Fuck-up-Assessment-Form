@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advent of Code Assessment Form</title>
+    <style>
+        body {
+            font-family: Source Code Pro, monospace;
+            background: #0f0f23;
+            color: #00cc00;
+            margin: 0 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            text-align: left;
+            font-size: 24px;
+            padding: 14px;
+            color: #00cc00;
+            background: #0f0f23;
+        }
+        .content {
+            display: flex;
+        }
+        #canvasContainer {
+            flex: 1;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #formContainer {
+            flex: 1;
+            margin-left: 20px;
+        }
+        canvas {
+            border: 1px solid #009900;
+            max-height: calc(100vh - 80px);
+        }
+        button {
+            background: #0f0f23;
+            color: #009900;
+            border: none;
+            padding: 0;
+            margin-top: 10px;
+            cursor: pointer;
+            font-family: Source Code Pro, monospace;
+            font-size: 1em;
+        }
+        button:hover {
+            color: #00cc00;
+        }
+        input[type="text"] {
+            background: #0f0f23;
+            border: 1px solid #666666;
+            color: white;
+            padding: 2px 4px;
+            font-family: Source Code Pro, monospace;
+        }
+        fieldset {
+            border: 1px solid #009900;
+            margin: 10px 0;
+            padding: 10px;
+            color: white;
+        }
+        legend {
+            color: #009900;
+            padding: 0 5px;
+        }
+        /* Hide default checkbox */
+        input[type="checkbox"] {
+            display: none;
+        }
+        /* Custom checkbox */
+        input[type="checkbox"] + label:before {
+            content: '( )';
+            color: white;
+            margin-right: 5px;
+            font-family: Source Code Pro, monospace;
+        }
+        /* Checked state */
+        input[type="checkbox"]:checked + label:before {
+            content: '(O)';
+        }
+        label {
+            cursor: pointer;
+        }
+        #otherEmotionText {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Advent of Code Fuck-up Assessment Form</div>
+    <div class="content">
+        <div id="canvasContainer">
+            <canvas id="formCanvas"></canvas>
+            <button onclick="saveCanvas()">[ Share ]</button>
+        </div>
+
+        <div id="formContainer">
+            <div>
+                <label for="username">Username: </label>
+                <input type="text" id="username" placeholder="Enter your username">
+            </div>
+            <!--h3>Fuck-up Assessment Form</!--h3-->
+            <fieldset>
+                <legend>What emotions were going through your head upon fucking up? (check all that apply)</legend>
+                <input type="checkbox" id="rage" name="emotions" value="Rage"><label for="rage">Rage</label><br>
+                <input type="checkbox" id="hangover" name="emotions" value="Hangover"><label for="hangover">Hangover</label><br>
+                <input type="checkbox" id="christmas" name="emotions" value="Christmas Cheer"><label for="christmas">Christmas Cheer</label><br>
+                <input type="checkbox" id="python" name="emotions" value="Desire to switch to Python"><label for="python">Desire to switch to Python</label><br>
+                <input type="checkbox" id="despair" name="emotions" value="Despair"><label for="despair">Despair</label><br>
+                <input type="checkbox" id="elf" name="emotions" value="Elf Racism"><label for="elf">Elf Racism</label><br>
+                <input type="checkbox" id="all" name="emotions" value="All of the above"><label for="all">All of the above</label><br>
+                <input type="checkbox" id="other" name="emotions" value="Other (please specify)"><label for="other">Other (please specify): <input type="text" id="otherEmotionText"></label>
+            </fieldset>
+            <fieldset>
+                <legend>How did you fuck up? (check all that apply):</legend>
+                <input type="checkbox" id="regex" name="reasons" value="Overly ambitious regex"><label for="regex">Overly ambitious regex</label><br>
+                <input type="checkbox" id="read_properly" name="reasons" value="Didn't read the question properly"><label for="read_properly">Didn't read the question properly</label><br>
+                <input type="checkbox" id="mangled" name="reasons" value="Mangled my input"><label for="mangled">Mangled my input</label><br>
+                <input type="checkbox" id="borrow" name="reasons" value="Borrow checker"><label for="borrow">Borrow checker</label><br>
+                <input type="checkbox" id="copy" name="reasons" value="Copied code without reading it"><label for="copy">Copied code without reading it</label><br>
+                <input type="checkbox" id="off_by_one" name="reasons" value="Off by one error"><label for="off_by_one">Off by one error</label><br>
+                <input type="checkbox" id="heat_death" name="reasons" value="Program runs in O(Heat-death-of-the-universe)"><label for="heat_death">Program runs in O(Heat-death-of-the-universe)</label><br>
+                <input type="checkbox" id="\n" name="reasons" value="What is \n"><label for="\n">What is \n</label><br>
+                <input type="checkbox" id="\r" name="reasons" value="What is \r"><label for="\r">What is \r</label><br>
+                <input type="checkbox" id="edge_cases" name="reasons" value="Examples didn't cover edge cases"><label for="edge_cases">Examples didn't cover edge cases</label><br>
+                <input type="checkbox" id="hangover_reason" name="reasons" value="Hangover"><label for="hangover_reason">Hangover</label><br>
+                <input type="checkbox" id="bodmas" name="reasons" value="BODMAS"><label for="bodmas">BODMAS</label><br>
+                <input type="checkbox" id="string" name="reasons" value="String bullshit"><label for="string">String bullshit</label><br>
+                <input type="checkbox" id="overflow" name="reasons" value="Silent overflow"><label for="overflow">Silent overflow</label><br>
+                <input type="checkbox" id="zany_language" name="reasons" value="Picked a zany language as a joke and am now in too deep to quit"><label for="zany_language">Picked a zany language as a joke and am now in too deep to quit</label><br>
+                <input type="checkbox" id="bogged_sleep" name="reasons" value="Bogged sleep schedule"><label for="bogged_sleep">Bogged sleep schedule</label><br>
+                <input type="checkbox" id="thought" name="reasons" value="Thought to deeply about the ramifications for a world in which these kinds of problems can happen"><label for="thought">Thought to deeply about the ramifications for a world in which these kinds of problems can happen</label><br>
+                <input type="checkbox" id="burnt" name="reasons" value="Burnt myself out hyper-optimizing the first week of problems"><label for="burnt">Burnt myself out hyper-optimizing the first week of problems</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>What have you tried so far to remedy your fuck-up? (check all that apply):</legend>
+                <input type="checkbox" id="shitposting" name="solutions" value="Shitposting"><label for="shitposting">Shitposting</label><br>
+                <input type="checkbox" id="switched_python" name="solutions" value="Switched to Python"><label for="switched_python">Switched to Python</label><br>
+                <input type="checkbox" id="&s" name="solutions" value="Threw &s at the problem"><label for="&s">Threw &s at the problem</label><br>
+                <input type="checkbox" id="live" name="solutions" value="Live-stream"><label for="live">Live-stream</label><br>
+                <input type="checkbox" id="crying" name="solutions" value="Crying"><label for="crying">Crying</label><br>
+                <input type="checkbox" id="discord" name="solutions" value="Crying on Discord"><label for="discord">Crying on Discord</label><br>
+                <input type="checkbox" id="eric" name="solutions" value="Placed a hex on Eric Wastl"><label for="eric">Placed a hex on Eric Wastl</label><br>
+                <input type="checkbox" id="alcohol" name="solutions" value="Alcohol"><label for="alcohol">Alcohol</label><br>
+            </fieldset>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById("formCanvas");
+        const ctx = canvas.getContext("2d");
+        const img = new Image();
+        //img.crossOrigin = "anonymous";
+
+        // Set current date and time
+        const now = new Date();
+
+        // Load the image and set canvas dimensions
+        img.src = "fuckup_form.png"; // Adjust this path if needed
+        img.onload = () => {
+            const aspectRatio = img.width / img.height;
+            canvas.width = 600; // Fixed width
+            canvas.height = canvas.width / aspectRatio; // Maintain aspect ratio
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        };
+
+        // Add event listeners for live updates
+        document.querySelectorAll('input[type="checkbox"], #username, #otherEmotionText').forEach(input => {
+            input.addEventListener('change', updateCanvas);
+            if (input.type === 'text') {
+                input.addEventListener('input', updateCanvas);
+            }
+        });
+
+        function updateCanvas() {
+            // Redraw the base image
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+            // Get username and date/time
+            const username = document.getElementById("username").value || "Anonymous";
+            const dateTime = now.toLocaleString();
+
+            // Write username and date/time to canvas
+            ctx.font = "11px Arial";
+            ctx.fillStyle = "white"
+            ctx.fillRect(170, 252, 100, 10);
+            ctx.fillStyle = "black";
+            ctx.fillText(`${username}`, 170, 262, 100);
+            ctx.fillStyle = "white"
+            ctx.fillRect(432, 252, 120, 10);
+            ctx.fillStyle = "black";
+            ctx.fillText(`${dateTime}`, 432, 262, 120);
+
+            // Add "X" marks for selected options
+            const selections = document.querySelectorAll("input[type='checkbox']:checked");
+            selections.forEach((checkbox) => {
+                // Get the section name and value to create a unique key
+                const section = checkbox.name;
+                const value = checkbox.value;
+                const key = `${section}:${value}`;
+
+                const positions = {
+                    // Emotions section
+                    "emotions:Rage": { x: 44, y: 295 },
+                    "emotions:Hangover": { x: 106, y: 295 },
+                    "emotions:Christmas Cheer": { x: 186, y: 295 },
+                    "emotions:Desire to switch to Python": { x: 297, y: 295 },
+                    "emotions:Despair": { x: 44, y: 307 },
+                    "emotions:Elf Racism": { x: 106, y: 307 },
+                    "emotions:All of the above": { x: 186, y: 307 },
+                    "emotions:Other (please specify)": { x: 297, y: 307 },
+                    
+                    // How did you fuck up section
+                    "reasons:Overly ambitious regex": { x: 44, y: 360 },
+                    "reasons:Didn't read the question properly": { x: 44, y: 371 },
+                    "reasons:Mangled my input": { x: 44, y: 384 },
+                    "reasons:Borrow checker": { x: 44, y: 397 },
+                    "reasons:Copied code without reading it": { x: 44, y: 408 },
+                    "reasons:Off by one error": { x: 44, y: 421 },
+                    "reasons:Program runs in O(Heat-death-of-the-universe)": { x: 44, y: 434 },
+                    "reasons:What is \\n": { x: 44, y: 446 },
+                    "reasons:What is \\r": { x: 44, y: 459 },
+                    "reasons:Examples didn't cover edge cases": { x: 44, y: 470 },
+                    "reasons:Hangover": { x: 44, y: 482 },
+                    "reasons:BODMAS": { x: 44, y: 495 },
+                    "reasons:String bullshit": { x: 44, y: 509 },
+                    "reasons:Silent overflow": { x: 44, y: 521 },
+                    "reasons:Picked a zany language as a joke and am now in too deep to quit": { x: 44, y: 533 },
+                    "reasons:Bogged sleep schedule": { x: 44, y: 546 },
+                    "reasons:Thought to deeply about the ramifications for a world in which these kinds of problems can happen": { x: 44, y: 558 },
+                    "reasons:Burnt myself out hyper-optimizing the first week of problems": { x: 44, y: 582 },
+                    
+                    // Solutions section
+                    "solutions:Shitposting": { x: 44, y: 633 },
+                    "solutions:Switched to Python": { x: 130, y: 633 },
+                    "solutions:Threw &s at the problem": { x: 260, y: 633 },
+                    "solutions:Live-stream": { x: 440, y: 633 },
+                    "solutions:Crying": { x: 44, y: 647 },
+                    "solutions:Crying on Discord": { x: 130, y: 647 },
+                    "solutions:Placed a hex on Eric Wastl": { x: 260, y: 647 },
+                    "solutions:Alcohol": { x: 440, y: 647 }
+                };
+
+                const pos = positions[key];
+                if (pos) {
+                    ctx.strokeStyle = "red";
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(pos.x - 4, pos.y - 4);
+                    ctx.lineTo(pos.x + 4, pos.y + 4);
+                    ctx.moveTo(pos.x + 4, pos.y - 4);
+                    ctx.lineTo(pos.x - 4, pos.y + 4);
+                    ctx.stroke();
+
+                    // If "Other" is selected, add the specified text
+                    if (value === "Other (please specify)") {
+                        const otherText = document.getElementById("otherEmotionText").value;
+                        if (otherText) {
+                            ctx.fillStyle = "white"
+                            ctx.fillRect(pos.x + 153, pos.y + 2, 100, 4);
+                            ctx.fillStyle = "black";
+                            ctx.fillText(otherText, pos.x + 153, pos.y + 4, 102);
+                        }
+                    }
+                }
+            });
+        }
+
+        function saveCanvas() {
+            const link = document.createElement("a");
+            link.download = "fuckup_form.png";
+            link.href = canvas.toDataURL("image/png");
+            link.click();
+        }
+    </script>
+</body>
+</html>
