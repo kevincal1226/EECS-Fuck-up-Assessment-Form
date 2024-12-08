@@ -110,7 +110,7 @@
     <div class="content">
         <div id="canvasContainer">
             <canvas id="formCanvas"></canvas>
-            <button onclick="saveCanvas()">[ Share ]</button>
+            <button onclick="saveCanvas()">[ Save ]</button>
         </div>
 
         <div id="formContainer">
@@ -200,7 +200,7 @@
             const dateTime = now.toLocaleString();
 
             // Write username and date/time to canvas
-            ctx.font = "11px Arial";
+            ctx.font = "11px Source Code Pro, monospace";
             ctx.fillStyle = "white"
             ctx.fillRect(170, 252, 100, 10);
             ctx.fillStyle = "black";
