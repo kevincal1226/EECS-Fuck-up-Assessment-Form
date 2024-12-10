@@ -4,7 +4,7 @@ This is a humorous assessment form for participants of EECS classes to evaluate 
 
 ## Usage
 
-To use the form, simply open the [The GitHub Pages Website]([https://kevincal12](https://kevincal1226.github.io/EECS-Fuck-up-Assessment-Form/) in your web browser. You can fill out the form and share the results.
+To use the form, simply open the [The GitHub Pages Website]([https://kevincal1226.github.io/EECS-Fuck-up-Assessment-Form/]) in your web browser. You can fill out the form and share the results.
 
 ## Disclaimer
 
