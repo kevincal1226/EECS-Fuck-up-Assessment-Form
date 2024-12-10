@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advent of Code Assessment Form</title>
+    <title>EECS Exam Assessment Form</title>
     <style>
         body {
             font-family: Source Code Pro, monospace;
@@ -13,6 +14,7 @@
             display: flex;
             flex-direction: column;
         }
+
         .header {
             position: sticky;
             top: 0;
@@ -23,19 +25,23 @@
             color: #00cc00;
             background: #0f0f23;
         }
+
         a {
             color: #00cc00;
             text-decoration: none;
         }
+
         a:hover {
             text-decoration: underline;
         }
+
         .content {
             display: flex;
             flex-wrap: wrap;
             max-width: calc(100vw - 40px);
             gap: 1rem;
         }
+
         #canvasContainer {
             flex: 1;
             text-align: center;
@@ -43,15 +49,18 @@
             flex-direction: column;
             align-items: center;
         }
+
         #formContainer {
             flex: 1;
             margin-left: 20px;
         }
+
         canvas {
             border: 1px solid #009900;
             max-height: calc(100vh - 80px);
             max-width: calc(100vw - 80px);
         }
+
         button {
             background: #0f0f23;
             color: #009900;
@@ -62,9 +71,11 @@
             font-family: Source Code Pro, monospace;
             font-size: 1em;
         }
+
         button:hover {
             color: #00cc00;
         }
+
         input[type="text"] {
             background: #0f0f23;
             border: 1px solid #666666;
@@ -72,41 +83,49 @@
             padding: 2px 4px;
             font-family: Source Code Pro, monospace;
         }
+
         fieldset {
             border: 1px solid #009900;
             margin: 10px 0;
             padding: 10px;
             color: white;
         }
+
         legend {
             color: #009900;
             padding: 0 5px;
         }
+
         /* Hide default checkbox */
         input[type="checkbox"] {
             display: none;
         }
+
         /* Custom checkbox */
-        input[type="checkbox"] + label:before {
+        input[type="checkbox"]+label:before {
             content: '( )';
             color: white;
             margin-right: 5px;
             font-family: Source Code Pro, monospace;
         }
+
         /* Checked state */
-        input[type="checkbox"]:checked + label:before {
+        input[type="checkbox"]:checked+label:before {
             content: '(O)';
         }
+
         label {
             cursor: pointer;
         }
+
         #otherEmotionText {
             margin-left: 5px;
         }
     </style>
 </head>
+
 <body>
-    <div class="header"><a href="https://adventofcode.com/">Advent of Code</a> Fuck-up Assessment Form</div>
+    <div class="header"><a href="https://cse.engin.umich.edu/">EECS Exam</a> Fuck-up Assessment Form</div>
     <div class="content">
         <div id="canvasContainer">
             <canvas id="formCanvas"></canvas>
@@ -122,45 +141,83 @@
             <fieldset>
                 <legend>What emotions were going through your head upon fucking up? (check all that apply)</legend>
                 <input type="checkbox" id="rage" name="emotions" value="Rage"><label for="rage">Rage</label><br>
-                <input type="checkbox" id="hangover" name="emotions" value="Hangover"><label for="hangover">Hangover</label><br>
-                <input type="checkbox" id="christmas" name="emotions" value="Christmas Cheer"><label for="christmas">Christmas Cheer</label><br>
-                <input type="checkbox" id="python" name="emotions" value="Desire to switch to Python"><label for="python">Desire to switch to Python</label><br>
-                <input type="checkbox" id="despair" name="emotions" value="Despair"><label for="despair">Despair</label><br>
-                <input type="checkbox" id="elf" name="emotions" value="Elf Racism"><label for="elf">Elf Racism</label><br>
-                <input type="checkbox" id="all" name="emotions" value="All of the above"><label for="all">All of the above</label><br>
-                <input type="checkbox" id="other" name="emotions" value="Other (please specify)"><label for="other">Other (please specify): <input type="text" id="otherEmotionText"></label>
+                <input type="checkbox" id="hangover" name="emotions" value="Hangover"><label
+                    for="hangover">Hangover</label><br>
+                <input type="checkbox" id="christmas" name="emotions" value="Christmas Cheer"><label for="christmas">BBB
+                    4th Floor</label><br>
+                <input type="checkbox" id="python" name="emotions" value="Desire to switch to Python"><label
+                    for="python">All 5 stages of grief</label><br>
+                <input type="checkbox" id="despair" name="emotions" value="Despair"><label
+                    for="despair">Despair</label><br>
+                <input type="checkbox" id="elf" name="emotions" value="Elf Racism"><label for="elf">Impostor
+                    Syndrome</label><br>
+                <input type="checkbox" id="all" name="emotions" value="All of the above"><label for="all">All of the
+                    above</label><br>
+                <input type="checkbox" id="other" name="emotions" value="Other (please specify)"><label
+                    for="other">Other (please specify): <input type="text" id="otherEmotionText"></label>
             </fieldset>
             <fieldset>
                 <legend>How did you fuck up? (check all that apply):</legend>
-                <input type="checkbox" id="regex" name="reasons" value="Overly ambitious regex"><label for="regex">Overly ambitious regex</label><br>
-                <input type="checkbox" id="read_properly" name="reasons" value="Didn't read the question properly"><label for="read_properly">Didn't read the question properly</label><br>
-                <input type="checkbox" id="mangled" name="reasons" value="Mangled my input"><label for="mangled">Mangled my input</label><br>
-                <input type="checkbox" id="borrow" name="reasons" value="Borrow checker"><label for="borrow">Borrow checker</label><br>
-                <input type="checkbox" id="copy" name="reasons" value="Copied code without reading it"><label for="copy">Copied code without reading it</label><br>
-                <input type="checkbox" id="off_by_one" name="reasons" value="Off by one error"><label for="off_by_one">Off by one error</label><br>
-                <input type="checkbox" id="heat_death" name="reasons" value="Program runs in O(Heat-death-of-the-universe)"><label for="heat_death">Program runs in O(Heat-death-of-the-universe)</label><br>
-                <input type="checkbox" id="\n" name="reasons" value="What is \n"><label for="\n">What is \n</label><br>
-                <input type="checkbox" id="\r" name="reasons" value="What is \r"><label for="\r">What is \r</label><br>
-                <input type="checkbox" id="edge_cases" name="reasons" value="Examples didn't cover edge cases"><label for="edge_cases">Examples didn't cover edge cases</label><br>
-                <input type="checkbox" id="hangover_reason" name="reasons" value="Hangover"><label for="hangover_reason">Hangover</label><br>
-                <input type="checkbox" id="bodmas" name="reasons" value="BODMAS"><label for="bodmas">BODMAS</label><br>
-                <input type="checkbox" id="string" name="reasons" value="String bullshit"><label for="string">String bullshit</label><br>
-                <input type="checkbox" id="overflow" name="reasons" value="Silent overflow"><label for="overflow">Silent overflow</label><br>
-                <input type="checkbox" id="zany_language" name="reasons" value="Picked a zany language as a joke and am now in too deep to quit"><label for="zany_language">Picked a zany language as a joke and am now in too deep to quit</label><br>
-                <input type="checkbox" id="bogged_sleep" name="reasons" value="Bogged sleep schedule"><label for="bogged_sleep">Bogged sleep schedule</label><br>
-                <input type="checkbox" id="thought" name="reasons" value="Thought to deeply about the ramifications for a world in which these kinds of problems can happen"><label for="thought">Thought to deeply about the ramifications for a world in which these kinds of problems can happen</label><br>
-                <input type="checkbox" id="burnt" name="reasons" value="Burnt myself out hyper-optimizing the first week of problems"><label for="burnt">Burnt myself out hyper-optimizing the first week of problems</label><br>
+                <input type="checkbox" id="regex" name="reasons" value="Overly ambitious regex"><label
+                    for="regex">Didn't read the question</label><br>
+                <input type="checkbox" id="read_properly" name="reasons"
+                    value="Didn't read the question properly"><label for="read_properly">Got edge case'd</label><br>
+                <input type="checkbox" id="mangled" name="reasons" value="Mangled my input"><label for="mangled">Exam
+                    was poorly-worded</label><br>
+                <input type="checkbox" id="borrow" name="reasons" value="Borrow checker"><label for="borrow">Did not, in
+                    fact, select all that applied</label><br>
+                <input type="checkbox" id="copy" name="reasons" value="Copied code without reading it"><label
+                    for="copy">"This doesn't need to go on the cheat sheet"</label><br>
+                <input type="checkbox" id="off_by_one" name="reasons" value="Off by one error"><label
+                    for="off_by_one">Bubbled the wrong thing</label><br>
+                <input type="checkbox" id="heat_death" name="reasons"
+                    value="Program runs in O(Heat-death-of-the-universe)"><label for="heat_death">Grader couldn't read
+                    the handwriting</label><br>
+                <input type="checkbox" id="\n" name="reasons" value="What is \n"><label for="\n">Proctor was not
+                    helpful</label><br>
+                <input type="checkbox" id="\r" name="reasons" value="What is \r"><label for="\r">Spent too much time on
+                    a question</label><br>
+                <input type="checkbox" id="edge_cases" name="reasons" value="Examples didn't cover edge cases"><label
+                    for="edge_cases">Partner did all the work on the projects</label><br>
+                <input type="checkbox" id="hangover_reason" name="reasons" value="Hangover"><label
+                    for="hangover_reason">Got the easy question wrong while thinking it was too easy</label><br>
+                <input type="checkbox" id="bodmas" name="reasons" value="BODMAS"><label for="bodmas">Wrote the answer in
+                    decimal instead of hex</label><br>
+                <input type="checkbox" id="string" name="reasons" value="String bullshit"><label for="string">The exam
+                    was cumulative</label><br>
+                <input type="checkbox" id="overflow" name="reasons" value="Silent overflow"><label for="overflow">Syntax
+                    error on FRQ</label><br>
+                <input type="checkbox" id="zany_language" name="reasons"
+                    value="Picked a zany language as a joke and am now in too deep to quit"><label
+                    for="zany_language">Too busy doing Advent of Code</label><br>
+                <input type="checkbox" id="bogged_sleep" name="reasons" value="Bogged sleep schedule"><label
+                    for="bogged_sleep">Bogged sleep schedule</label><br>
+                <input type="checkbox" id="thought" name="reasons"
+                    value="Thought to deeply about the ramifications for a world in which these kinds of problems can happen"><label
+                    for="thought">Thought to deeply about the ramifications for a world in which these kinds of exams
+                    exist</label><br>
+                <input type="checkbox" id="burnt" name="reasons"
+                    value="Burnt myself out hyper-optimizing the first week of problems"><label for="burnt">Couldn't
+                    find your room/went to the wrong room</label><br>
             </fieldset>
             <fieldset>
                 <legend>What have you tried so far to remedy your fuck-up? (check all that apply):</legend>
-                <input type="checkbox" id="shitposting" name="solutions" value="Shitposting"><label for="shitposting">Shitposting</label><br>
-                <input type="checkbox" id="switched_python" name="solutions" value="Switched to Python"><label for="switched_python">Switched to Python</label><br>
-                <input type="checkbox" id="&s" name="solutions" value="Threw &s at the problem"><label for="&s">Threw &s at the problem</label><br>
-                <input type="checkbox" id="live" name="solutions" value="Live-stream"><label for="live">Live-stream</label><br>
-                <input type="checkbox" id="crying" name="solutions" value="Crying"><label for="crying">Crying</label><br>
-                <input type="checkbox" id="discord" name="solutions" value="Crying on Discord"><label for="discord">Crying on Discord</label><br>
-                <input type="checkbox" id="eric" name="solutions" value="Placed a hex on Eric Wastl"><label for="eric">Placed a hex on Eric Wastl</label><br>
-                <input type="checkbox" id="alcohol" name="solutions" value="Alcohol"><label for="alcohol">Alcohol</label><br>
+                <input type="checkbox" id="shitposting" name="solutions" value="Shitposting"><label
+                    for="shitposting">Shitposting</label><br>
+                <input type="checkbox" id="switched_python" name="solutions" value="Switched to Python"><label
+                    for="switched_python">Switching to Data Science</label><br>
+                <input type="checkbox" id="&s" name="solutions" value="Threw &s at the problem"><label for="&s">Coping
+                    about the curve</label><br>
+                <input type="checkbox" id="live" name="solutions" value="Live-stream"><label for="live">BBB 4th Floor
+                    (again)</label><br>
+                <input type="checkbox" id="crying" name="solutions" value="Crying"><label for="crying">Putting a hex on
+                    DeOrio</label><br>
+                <input type="checkbox" id="discord" name="solutions" value="Crying on Discord"><label
+                    for="discord">Crying on Discord</label><br>
+                <input type="checkbox" id="eric" name="solutions" value="Placed a hex on Eric Wastl"><label
+                    for="eric">Asking for when grades come out</label><br>
+                <input type="checkbox" id="alcohol" name="solutions" value="Alcohol"><label for="alcohol">Spamming
+                    regrade requests</label><br>
             </fieldset>
         </div>
     </div>
@@ -228,7 +285,7 @@
                     "emotions:Elf Racism": { x: 106, y: 307 },
                     "emotions:All of the above": { x: 186, y: 307 },
                     "emotions:Other (please specify)": { x: 297, y: 307 },
-                    
+
                     // How did you fuck up section
                     "reasons:Overly ambitious regex": { x: 44, y: 360 },
                     "reasons:Didn't read the question properly": { x: 44, y: 371 },
@@ -248,7 +305,7 @@
                     "reasons:Bogged sleep schedule": { x: 44, y: 546 },
                     "reasons:Thought to deeply about the ramifications for a world in which these kinds of problems can happen": { x: 44, y: 558 },
                     "reasons:Burnt myself out hyper-optimizing the first week of problems": { x: 44, y: 582 },
-                    
+
                     // Solutions section
                     "solutions:Shitposting": { x: 44, y: 633 },
                     "solutions:Switched to Python": { x: 130, y: 633 },
@@ -293,4 +350,5 @@
         }
     </script>
 </body>
+
 </html>
